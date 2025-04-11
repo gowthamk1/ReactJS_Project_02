@@ -12,14 +12,14 @@ const ContactForm = () => {
   const [text, setText] = useState("");
 
   // Submitted values for preview
-  const [submittedName, setSubmittedName] = useState("");      // ✅
-  const [submittedEmail, setSubmittedEmail] = useState("");    // ✅
-  const [submittedText, setSubmittedText] = useState("");      // ✅
+  const [submittedName, setSubmittedName] = useState("");     
+  const [submittedEmail, setSubmittedEmail] = useState("");    
+  const [submittedText, setSubmittedText] = useState("");      
 
   const onSubmit = (event) => {
     event.preventDefault();
 
-    // ✅ Copy current input values to submitted state
+    // Copy current input values to submitted state
     setSubmittedName(name);
     setSubmittedEmail(email);
     setSubmittedText(text);
