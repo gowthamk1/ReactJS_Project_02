@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.top_btn{
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px 0;
+    gap: 32px;
+}
