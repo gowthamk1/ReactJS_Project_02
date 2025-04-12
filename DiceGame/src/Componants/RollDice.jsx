@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
-const RollDice = ({dice, setDice}) => {
-
-  const rollDice = () => {
-    const randomNumber = Math.floor(Math.random() * 6) + 1;
-    setDice(randomNumber);
-  };
-
+const RollDice = ({ rollDice, dice }) => {
   return (
     <DiceContainer>
       <div className="dice" onClick={rollDice}>
