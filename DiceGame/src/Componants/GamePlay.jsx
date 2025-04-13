@@ -40,10 +40,10 @@ const GamePlay = () => {
         />
       </div>
       <RollDice dice={dice} rollDice={rollDice} />
-      <div className="btns">
+      {/* <div className="btns">
         <Button>Reset</Button>
         <Button></Button>
-      </div>
+      </div> */}
     </MainContainer>
   );
 };
