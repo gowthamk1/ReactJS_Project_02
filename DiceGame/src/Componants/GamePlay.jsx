@@ -4,30 +4,30 @@ import NumberSelector from './NumberSelector';
 import styled from 'styled-components';
 import RollDice from './RollDice';
 import Button, { OutlineButton } from '/src/Styled/Button';
-
+import Rules from './Rules';
 
 const GamePlay = () => {
   const [score, setScore] = useState(0);
   const [selectedNumber, setSelectedNumber] = useState();
   const [dice, setDice] = useState(1);
   const [error, setError] = useState('');
+  const [showRules, setShowRules] = useState(false);
 
   const rollDice = () => {
-
-    if(!selectedNumber) {
-        setError("You have not selected any number")
-        return;
+    if (!selectedNumber) {
+      setError("You have not selected any number");
+      return;
     }
-
 
     const randomNumber = Math.floor(Math.random() * 6) + 1;
     setDice(randomNumber);
 
-    if(selectedNumber===randomNumber){
-        setScore(prev => prev + randomNumber)
-    }else{
-        setScore(prev => prev - 2)
+    if (selectedNumber === randomNumber) {
+      setScore(prev => prev + randomNumber);
+    } else {
+      setScore(prev => prev - 2);
     }
+
     setSelectedNumber(undefined);
   };
 
@@ -40,17 +40,20 @@ const GamePlay = () => {
       <div className='top_section'>
         <TotalScore score={score} />
         <NumberSelector
-            error = {error}
-            setError={setError}
-            selectedNumber={selectedNumber}
-            setSelectedNumber={setSelectedNumber}
+          error={error}
+          setError={setError}
+          selectedNumber={selectedNumber}
+          setSelectedNumber={setSelectedNumber}
         />
       </div>
       <RollDice dice={dice} rollDice={rollDice} />
       <div className="btns">
-        <OutlineButton onClick = {resetScore} >Reset</OutlineButton>
-        <Button>Show rules</Button>
+        <OutlineButton onClick={resetScore}>Reset</OutlineButton>
+        <Button onClick={() => setShowRules(prev => !prev)}>
+          {showRules ? "Hide Rules" : "Show Rules"}
+        </Button>
       </div>
+      {showRules && <Rules />}
     </MainContainer>
   );
 };
@@ -70,6 +73,5 @@ const MainContainer = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
   }
 `;
