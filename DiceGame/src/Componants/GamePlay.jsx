@@ -3,6 +3,8 @@ import TotalScore from './TotalScore';
 import NumberSelector from './NumberSelector';
 import styled from 'styled-components';
 import RollDice from './RollDice';
+import Button, { OutlineButton } from '/src/Styled/Button';
+
 
 const GamePlay = () => {
   const [score, setScore] = useState(0);
@@ -17,6 +19,7 @@ const GamePlay = () => {
         return;
     }
 
+
     const randomNumber = Math.floor(Math.random() * 6) + 1;
     setDice(randomNumber);
 
@@ -26,6 +29,10 @@ const GamePlay = () => {
         setScore(prev => prev - 2)
     }
     setSelectedNumber(undefined);
+  };
+
+  const resetScore = () => {
+    setScore(0);
   };
 
   return (
@@ -40,10 +47,10 @@ const GamePlay = () => {
         />
       </div>
       <RollDice dice={dice} rollDice={rollDice} />
-      {/* <div className="btns">
-        <Button>Reset</Button>
-        <Button></Button>
-      </div> */}
+      <div className="btns">
+        <OutlineButton onClick={resetScore}>Reset</OutlineButton>
+        <Button>Show rules</Button>
+      </div>
     </MainContainer>
   );
 };
@@ -55,5 +62,14 @@ const MainContainer = styled.main`
     display: flex;
     justify-content: space-between;
     align-items: end;
+  }
+  .btns {
+    gap: 10px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
   }
 `;
