@@ -61,11 +61,19 @@ const GamePlay = () => {
 export default GamePlay;
 
 const MainContainer = styled.main`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
   .top_section {
     display: flex;
     justify-content: space-between;
     align-items: end;
+    flex-wrap: wrap;
+    gap: 20px;
   }
+
   .btns {
     gap: 10px;
     margin-top: 40px;

@@ -12,11 +12,13 @@ function App() {
 
   return (
     <>
+    <div className="Container">
       {isGameStarted ? (
         <GamePlay />
       ) : (
         <StartGame toggleGame={toggleGame} />
       )}
+    </div>
     </>
   );
 }
